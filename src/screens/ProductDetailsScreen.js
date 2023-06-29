@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
         lineHeight:25,
     },
 
-
     button:{
         position: 'absolute',
         backgroundColor: 'black',
