@@ -1,16 +1,21 @@
 import { View, Text, FlatList, ScrollView, Image, Pressable, StyleSheet } from 'react-native';
 import React from 'react';
 import product from '../data/product';
+import { useSelector } from 'react-redux';
 
 const ProductDetailsScreen = () => {
 
-    const product1 = product[0];
+    // const selectedProduct = useSelector(state => state.products.selectedProduct);
+
+    // const product = products[selectedProduct];
+    const product = useSelector((state) => state.products.selectedProduct);
+
     return (
         <View>
 
             <ScrollView>
                 <FlatList
-                    data={product1.images}
+                    data={product.images}
                     renderItem={({ item }) => (
                         <Image source={{ uri: item }} style={{ width: 300, aspectRatio: 1 }} />
 
@@ -20,13 +25,13 @@ const ProductDetailsScreen = () => {
 
                 <View style= {{padding: 20 }}>
                     {/* Title */}
-                    <Text style = {styles.titleProduct}>{product1.name}</Text>
+                    <Text style = {styles.titleProduct}>{product.name}</Text>
 
                     {/* Price */}
-                    <Text style = {styles.price}>${product1.price}</Text>
+                    <Text style = {styles.price}>${product.price}</Text>
 
                     {/* Description */}
-                    <Text style = {styles.description}>{product1.description}</Text>
+                    <Text style = {styles.description}>{product.description}</Text>
                 </View>
             </ScrollView>
 

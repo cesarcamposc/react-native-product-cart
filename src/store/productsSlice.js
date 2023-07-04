@@ -3,16 +3,17 @@ import products from "../data/product";
 
 const initialState = {
     products: products,
-    selectedProducts : null
+    selectedProduct : null
 };
 
 export const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        selectedProducts:(state,action) => {
-            console.log('state', state);
-            console.log('action', action);
+        setSelectedProduct:(state,action) => {
+            
+            const productId = action.payload;
+            state.selectedProduct = state.products.find((p)=> p.id === productId);
 
         }
     },

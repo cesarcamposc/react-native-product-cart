@@ -19,9 +19,10 @@ const ProductsScreen = ({navigation}) => {
                 <Pressable
                 onPress={()=>{
                     
-                    dispatch(productsSlice.actions.selectedProducts(item.id));
+                    dispatch(productsSlice.actions.setSelectedProduct(item.id));
                     
-                    navigation.navigate('PRODUCT DETAILS')}}
+                    navigation.navigate('PRODUCT DETAILS');
+                }}
                 style={styles.itemContainer}                
                 >
                     <Image
