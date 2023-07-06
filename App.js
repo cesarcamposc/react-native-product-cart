@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation from './src/navigation';
 import { Provider } from 'react-redux';
-import { Store, store } from './src/store';
+import {store } from './src/store';
 
 export default function App() {
 

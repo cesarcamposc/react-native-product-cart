@@ -1,7 +1,8 @@
 import { View, Text, FlatList, ScrollView, Image, Pressable, StyleSheet } from 'react-native';
 import React from 'react';
 import product from '../data/product';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartSlice } from '../store/cartSlice';
 
 const ProductDetailsScreen = () => {
 
@@ -9,6 +10,12 @@ const ProductDetailsScreen = () => {
 
     // const product = products[selectedProduct];
     const product = useSelector((state) => state.products.selectedProduct);
+
+    const dispatch = useDispatch();
+
+    const addToCart = ()=>{
+        dispatch(cartSlice.actions.addCartItem({product}));
+    }
 
     return (
         <View>
@@ -35,8 +42,8 @@ const ProductDetailsScreen = () => {
                 </View>
             </ScrollView>
 
-            {/* card Button  */}
-            <Pressable style= {styles.button}>
+            {/*add cart Button  */}
+            <Pressable style= {styles.button} onPress={addToCart}>
                 <Text style = {styles.buttonText}> ADD CART</Text>
             </Pressable>
 
