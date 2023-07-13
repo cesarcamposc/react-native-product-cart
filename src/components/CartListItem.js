@@ -49,7 +49,7 @@ const CartListItem = ({cartItem}) => {
                     size = {25}
                     color = 'gray' />
 
-                    <Text style = {styles.intemTotal}>$ {cartItem.product.price * cartItem.quantity}</Text>
+                    <Text style = {styles.itemTotal}>$ {cartItem.product.price * cartItem.quantity}</Text>
                 </View>                
             </View>           
         </View>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         color: 'gray',
     },
 
-    intemTotal: {
+    itemTotal: {
         fontSize: 18,
         marginLeft: 'auto',
         fontWeight: '500'

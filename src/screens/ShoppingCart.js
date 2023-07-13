@@ -3,26 +3,33 @@ import React from 'react'
 import cart from '../data/cart'
 import CartListItem from '../components/CartListItem';
 import { useSelector } from 'react-redux';
+import { selectDeliveryPrice, selectSubtotal, selectTotal } from '../store/cartSlice';
 
-const ShoppingCartTotals = () => (
-    <View style={styles.totalsContainer}>
-        <View style={styles.row}>
-            <Text style={styles.text}>Subtotal</Text>
-            <Text style={styles.text}> 200,00</Text>
+const ShoppingCartTotals = () => {
+
+    const subtotal = useSelector(selectSubtotal);
+    const deliveryFree = useSelector(selectDeliveryPrice);
+    const total = useSelector(selectTotal);
+
+    return(
+        <View style={styles.totalsContainer}>
+            <View style={styles.row}>
+                <Text style={styles.text}>Subtotal</Text>
+                <Text style={styles.text}> {subtotal}</Text>
+            </View>
+
+            <View style={styles.row}>
+                <Text style={styles.text}>Delivery</Text>
+                <Text style={styles.text}> {deliveryFree}</Text>
+            </View>
+
+            <View style={styles.row}>
+                <Text style={styles.texBold}>Total</Text>
+                <Text style={styles.texBold}>{total}</Text>
+            </View>
         </View>
-
-        <View style={styles.row}>
-            <Text style={styles.text}>Delivery</Text>
-            <Text style={styles.text}> 100,00</Text>
-        </View>
-
-        <View style={styles.row}>
-            <Text style={styles.texBold}>Total</Text>
-            <Text style={styles.texBold}> 400,00</Text>
-        </View>
-    </View>
-
-);
+    )
+};
 
 const ShoppingCart = () => {
 
